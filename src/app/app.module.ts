@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ExchangeRatePanelComponent } from './exchange-rate-panel/exchange-rate-panel.component';
 import { MainContentPanelComponent } from './main-content-panel/main-content-panel.component';
 import { RateCardComponent } from './rate-card/rate-card.component';
+import { MenubarComponent } from './menubar/menubar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExchangeRatePanelComponent,
     MainContentPanelComponent,
-    RateCardComponent
+    RateCardComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
