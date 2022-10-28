@@ -1,6 +1,8 @@
+@import "./vars.scss";
+
 body {
     margin: 0;
     background-image: url("./assets/images/background.jpg");
     background-size: cover;
-    color: rgba(255, 255, 255, 0.67);
+    color: $text-simple;
 }
