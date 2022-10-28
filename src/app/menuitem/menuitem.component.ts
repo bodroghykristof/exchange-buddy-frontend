@@ -14,10 +14,15 @@ export class MenuitemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(window.location.pathname);
   }
 
   public onClick() {
     console.log("Menuitem clicked");
+  }
+
+  public isSelected() : boolean {
+    return window.location.pathname === "/" + this.path;
   }
 
 }
