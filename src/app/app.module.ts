@@ -7,6 +7,9 @@ import { ExchangeRatePanelComponent } from './exchange-rate-panel/exchange-rate-
 import { MainContentPanelComponent } from './main-content-panel/main-content-panel.component';
 import { RateCardComponent } from './rate-card/rate-card.component';
 import { MenubarComponent } from './menubar/menubar.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import { BrokerBuddyComponent } from './broker-buddy/broker-buddy.component';
+import { CurrencyMapComponent } from './currency-map/currency-map.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { MenubarComponent } from './menubar/menubar.component';
     ExchangeRatePanelComponent,
     MainContentPanelComponent,
     RateCardComponent,
-    MenubarComponent
+    MenubarComponent,
+    StatisticsComponent,
+    BrokerBuddyComponent,
+    CurrencyMapComponent
   ],
   imports: [
     BrowserModule,
