@@ -5,6 +5,7 @@ import { CurrencyMapComponent } from './currency-map/currency-map.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 
 const routes: Routes = [
+   {path: "", redirectTo: "statistics", pathMatch: "full"},
    {path: "statistics", component: StatisticsComponent},
    {path: "broker-buddy", component: BrokerBuddyComponent},
    {path: "currency-map", component: CurrencyMapComponent}
