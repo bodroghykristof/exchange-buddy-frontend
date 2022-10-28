@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainContentPanelComponent implements OnInit {
 
+  color: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+
+  onColorChange(color: string) {
+    this.color = color;
+    console.log(color);
   }
 
 }
