@@ -1,11 +1,9 @@
 .main-content-panel {
-    background-color: lightgrey;
-
-    .menu-bar {
-        background-color: green;
-    }
+    display: flex;
+    justify-content: space-between;
 
     .menu-content {
+        flex: 1;
         background-color: orange;
     }
 
