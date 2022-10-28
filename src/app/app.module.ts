@@ -11,6 +11,7 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { BrokerBuddyComponent } from './broker-buddy/broker-buddy.component';
 import { CurrencyMapComponent } from './currency-map/currency-map.component';
 import { MenuitemComponent } from './menuitem/menuitem.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MenuitemComponent } from './menuitem/menuitem.component';
     StatisticsComponent,
     BrokerBuddyComponent,
     CurrencyMapComponent,
-    MenuitemComponent
+    MenuitemComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
