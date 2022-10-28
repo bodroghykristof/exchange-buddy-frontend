@@ -10,6 +10,7 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { BrokerBuddyComponent } from './broker-buddy/broker-buddy.component';
 import { CurrencyMapComponent } from './currency-map/currency-map.component';
+import { MenuitemComponent } from './menuitem/menuitem.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CurrencyMapComponent } from './currency-map/currency-map.component';
     MenubarComponent,
     StatisticsComponent,
     BrokerBuddyComponent,
-    CurrencyMapComponent
+    CurrencyMapComponent,
+    MenuitemComponent
   ],
   imports: [
     BrowserModule,

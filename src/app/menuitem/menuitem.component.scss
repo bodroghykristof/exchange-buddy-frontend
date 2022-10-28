@@ -1,0 +1,26 @@
+@import "../../vars.scss";
+
+a {
+    color: $text-highlight;
+    font-size: 18px;
+    text-decoration: none;
+    
+    :hover {
+        color: white;
+        // background-color: green;
+    }
+    
+    li {
+        margin-bottom: 40px;
+        padding-top: 0.25em;
+        padding-left: 5px;
+        height: 2em;
+        // background-color: blue;
+        // border-bottom: solid 2px;
+    }
+
+    li[data-selected='true'] {
+        // background-color: $blue;
+        color: white;
+    }
+}

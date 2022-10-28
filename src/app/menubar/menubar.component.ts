@@ -12,4 +12,8 @@ export class MenubarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onMenuSelect(event: MouseEvent) {
+    console.log("Clicked")
+  }
+
 }
