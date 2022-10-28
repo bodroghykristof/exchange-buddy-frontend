@@ -1,4 +1,7 @@
+@import "../../vars.scss";
+
 .exchange-rate-panel {
-    background-color: darkgray;
+    background-color: $main-dark;
+    opacity: $panel-opacity;
     margin: 0;
 }

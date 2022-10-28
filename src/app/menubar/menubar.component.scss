@@ -1,5 +1,8 @@
+@import "../../vars.scss";
+
 .menu-bar {
-    background-color: green;
+    background-color: $main-dark;
+    opacity: $panel-opacity;
     width: 200px;
     height: 100%;
 

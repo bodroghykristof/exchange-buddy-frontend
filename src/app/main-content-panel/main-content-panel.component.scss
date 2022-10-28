@@ -1,4 +1,6 @@
+@import "../../vars.scss";
+
 .menu-content {
     flex: 1;
-    background-color: orange;
+    background-color: $main-dark;
 }
