@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-menuitem',
@@ -10,15 +10,18 @@ export class MenuitemComponent implements OnInit {
   @Input() path: string = "";
   @Input() menuName: string = "";
   @Input() color: string = "";
+  @Output() select = new EventEmitter<string>;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(window.location.pathname);
+    if (this.isSelected()) {
+      this.select.emit(this.color);
+    }
   }
 
   public onClick() {
-    console.log("Menuitem clicked");
+    this.select.emit(this.color);
   }
 
   public isSelected() : boolean {

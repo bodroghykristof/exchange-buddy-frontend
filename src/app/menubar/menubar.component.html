@@ -1,8 +1,8 @@
 <div class="menu-bar">
     <ul>
-        <app-menuitem path="statistics" menuName="Statistics" color="#fa8528"></app-menuitem>
-        <app-menuitem path="broker-buddy" menuName="Broker Buddy" color="#439b5f"></app-menuitem>
-        <app-menuitem path="currency-map" menuName="Currency Map" color="#d73739"></app-menuitem>
-        <app-menuitem path="about" menuName="About" color="#27aabc"></app-menuitem>
+        <app-menuitem path="statistics" menuName="Statistics" color="#fa8528" (select)="onMenuChange($event)"></app-menuitem>
+        <app-menuitem path="broker-buddy" menuName="Broker Buddy" color="#439b5f" (select)="onMenuChange($event)"></app-menuitem>
+        <app-menuitem path="currency-map" menuName="Currency Map" color="#d73739" (select)="onMenuChange($event)"></app-menuitem>
+        <app-menuitem path="about" menuName="About" color="#27aabc" (select)="onMenuChange($event)"></app-menuitem>
     </ul>
 </div>

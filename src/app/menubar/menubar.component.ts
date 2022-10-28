@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menubar',
@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenubarComponent implements OnInit {
 
+  @Output() menuChange = new EventEmitter<string>;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public onMenuSelect(event: MouseEvent) {
-    console.log("Clicked")
+  public onMenuChange(color: string) {
+    this.menuChange.emit(color);
   }
 
 }

@@ -1,4 +1,4 @@
-<app-menubar></app-menubar>
-<div class="menu-content">
+<app-menubar (menuChange)="onColorChange($event)"></app-menubar>
+<div class="menu-content" [ngStyle]="{'border-top': color + ' solid 1px', 'border-left': color + ' solid 1px'}">
     <router-outlet></router-outlet>
 </div>
