@@ -15,4 +15,8 @@ export class MenuitemComponent {
     return window.location.pathname === "/" + this.path;
   }
 
+  public getBackgroundColor() : string {
+    return window.location.pathname === "/" + this.path ? this.color : "";
+  }
+
 }
