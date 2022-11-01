@@ -3,8 +3,7 @@
         <app-menuitem *ngFor="let menu of getMenus()" 
             [path]="menu.path" 
             [menuName]="menu.name"
-            [color]="menu.colorHex"
-            (select)="onMenuChange($event)">
+            [color]="menu.colorHex">
         </app-menuitem>
     </ul>
 </div>

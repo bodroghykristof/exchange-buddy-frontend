@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuService } from '../services/menu-service/menu.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { MenuService } from '../services/menu-service/menu.service';
   templateUrl: './main-content-panel.component.html',
   styleUrls: ['./main-content-panel.component.scss']
 })
-export class MainContentPanelComponent implements OnInit {
+export class MainContentPanelComponent {
 
   color: string = "";
 
@@ -14,13 +14,8 @@ export class MainContentPanelComponent implements OnInit {
     this.color = menuService.getActiveColor();
    }
 
-  ngOnInit(): void {
-    
-  }
-
-  onColorChange(color: string) {
-    this.color = color;
-    console.log(color);
-  }
+   getActiveColor() {
+    return this.menuService.getActiveColor();
+   }
 
 }
