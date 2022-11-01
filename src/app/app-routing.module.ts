@@ -8,7 +8,7 @@ import { MenuService } from './services/menu-service/menu.service';
     {
       provide: ROUTES,
       useFactory: (menuService: MenuService): Routes => {
-        return menuService.getMenus();
+        return [...menuService.getMenus(), { path: '**',   redirectTo: `/${menuService.defaultMenu.path}`, pathMatch: 'full' }];
       },
       deps: [MenuService],
       multi: true
