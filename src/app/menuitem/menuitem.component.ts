@@ -16,7 +16,7 @@ export class MenuitemComponent {
   }
 
   public getBackgroundColor() : string {
-    return window.location.pathname === "/" + this.path ? this.color : "";
+    return window.location.pathname === "/" + this.path ? `linear-gradient(to right, ${this.color}, white)` : "";
   }
 
 }

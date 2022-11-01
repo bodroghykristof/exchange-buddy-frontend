@@ -15,6 +15,6 @@ export const menus: Menu[] = [
         path: "currency-map", name: "Currency Map", component: CurrencyMapComponent, colorR: 215, colorG: 55, colorB: 57, colorHex: "#d73739", isDefault: false
     },
     {
-        path: "about", name: "About", colorR: 39, component: AboutComponent, colorG: 170, colorB: 188, colorHex: "#27aabc", isDefault: false
+        path: "about", name: "About", component: AboutComponent, colorR: 39, colorG: 170, colorB: 188, colorHex: "#27aabc", isDefault: false
     }
 ];
