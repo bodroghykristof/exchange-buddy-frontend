@@ -1,9 +1,5 @@
 <div class="menu-bar">
     <ul>
-        <app-menuitem *ngFor="let menu of getMenus()" 
-            [path]="menu.path" 
-            [menuName]="menu.name"
-            [color]="menu.colorHex">
-        </app-menuitem>
+        <app-menuitem *ngFor="let menu of getMenus()" [menu]="menu"></app-menuitem>
     </ul>
 </div>

@@ -1,4 +1,4 @@
-<a routerLink={{path}}>
+<a routerLink={{menu.path}}>
     <li 
-        [ngStyle]="{'border-bottom': color + ' solid 2px', 'background-image': getBackgroundColor()}">{{menuName}}</li>
+        [ngStyle]="{'border-bottom': menu.colorHex + ' solid 2px', 'background-image': getBackgroundColor()}">{{menu.name}}</li>
 </a>
