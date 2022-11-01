@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
-import { BrokerBuddyComponent } from './broker-buddy/broker-buddy.component';
-import { CurrencyMapComponent } from './currency-map/currency-map.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-
-const routes: Routes = [
-  {path: "statistics", component: StatisticsComponent},
-  {path: "broker-buddy", component: BrokerBuddyComponent},
-  {path: "currency-map", component: CurrencyMapComponent},
-  {path: "about", component: AboutComponent},
-  {path: "**", redirectTo: "statistics", pathMatch: "full"}
-];
+import { RouterModule, ROUTES, Routes } from '@angular/router';
+import { MenuService } from './services/menu-service/menu.service';
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot([])],
+  providers: [
+    {
+      provide: ROUTES,
+      useFactory: (menuService: MenuService): Routes => {
+        return menuService.getMenus();
+      },
+      deps: [MenuService],
+      multi: true
+    }
+  ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,5 +1,6 @@
-export interface Menu {
-    path: string,
+import { Route } from "@angular/router";
+
+export interface Menu extends Route {
     name: string,
     colorR: number,
     colorG: number,

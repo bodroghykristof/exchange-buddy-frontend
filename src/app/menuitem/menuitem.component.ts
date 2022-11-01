@@ -7,7 +7,7 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 })
 export class MenuitemComponent implements OnInit {
 
-  @Input() path: string = "";
+  @Input() path: string | undefined = "";
   @Input() menuName: string = "";
   @Input() color: string = "";
   @Output() select = new EventEmitter<string>;
