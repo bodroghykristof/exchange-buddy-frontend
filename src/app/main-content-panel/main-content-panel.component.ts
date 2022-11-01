@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../services/menu-service/menu.service';
 
 @Component({
   selector: 'app-main-content-panel',
@@ -9,7 +10,9 @@ export class MainContentPanelComponent implements OnInit {
 
   color: string = "";
 
-  constructor() { }
+  constructor(private readonly menuService: MenuService) { 
+    this.color = menuService.getActiveColor();
+   }
 
   ngOnInit(): void {
     
