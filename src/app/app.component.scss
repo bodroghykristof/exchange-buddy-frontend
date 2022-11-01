@@ -1,0 +1,13 @@
+.wrapper-panel {
+    width: 80%;
+    min-height: 80vh;
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-panel {
+    display: flex;
+    flex: 1;
+}

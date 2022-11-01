@@ -1,0 +1,9 @@
+@import "../../vars.scss";
+
+.rate-card {
+    background-color: $main-medium;
+    height: 120px;
+    border: $panel-border;
+    opacity: 1 !important;
+    margin: 10px;
+}

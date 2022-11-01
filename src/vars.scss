@@ -1,0 +1,15 @@
+$main-dark: rgb(28, 33, 53);
+$main-medium: rgb(35, 41, 61);
+
+$panel-opacity: 0.92;
+$opal-dark-panel: rgba(28, 33, 53, $panel-opacity); // combines #1c2135 with 0.92 opacity
+
+$panel-border: #121212 solid 1px;
+
+$text-simple: rgba(255, 255, 255, 0.67);
+$text-highlight: rgba(255, 255, 255, 0.80);
+
+$orange: #fa8528;
+$green: #439b5f;
+$red: #d73739;
+$blue: #27aabc;
