@@ -1,3 +1,6 @@
 <div class="rate-card">
-    <p>rate-card works!</p>
+    <p class="currency-name">{{currency | uppercase}}</p>
+    <img class="flag-image" src="./assets/images/currencies/{{currency}}.png" />
+    <p class="exchange-rate">406.75</p>
+    <fa-icon class="arrow-icon" [icon]="arrowIcon" [ngStyle]="{'color': arrowColor}"></fa-icon>
 </div>

@@ -12,6 +12,7 @@ import { BrokerBuddyComponent } from './broker-buddy/broker-buddy.component';
 import { CurrencyMapComponent } from './currency-map/currency-map.component';
 import { MenuitemComponent } from './menuitem/menuitem.component';
 import { AboutComponent } from './about/about.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AboutComponent } from './about/about.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
