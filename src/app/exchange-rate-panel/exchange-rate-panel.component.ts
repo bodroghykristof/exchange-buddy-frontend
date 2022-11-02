@@ -10,12 +10,13 @@ import { ExchangeRateService } from '../services/exchange-rate-service/exchange-
 export class ExchangeRatePanelComponent implements OnInit {
 
   currencies: string[] = ["eur", "usd", "gbp", "rub", "jpy", "chf"];
+  exchangeRates: ExchangeRate[] = [];
 
   constructor(private readonly exchangeRateService: ExchangeRateService) { }
 
   ngOnInit(): void {
     this.exchangeRateService.getExchangeRatesByBase("huf", this.currencies)
-                            .subscribe((data: ExchangeRate[]) => console.log(data));
+                            .subscribe((data: ExchangeRate[]) => this.exchangeRates =  data);
   }
 
 }
