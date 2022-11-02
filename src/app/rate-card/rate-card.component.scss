@@ -6,4 +6,13 @@
     border: $panel-border;
     opacity: 1 !important;
     margin: 10px;
+    position: relative;
+
+    .flag-image {
+        height: 40px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
 }
