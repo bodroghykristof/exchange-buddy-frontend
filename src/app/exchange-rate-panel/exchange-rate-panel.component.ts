@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 import { ExchangeRateService } from '../services/exchange-rate-service/exchange-rate.service';
 
 @Component({
@@ -13,6 +14,8 @@ export class ExchangeRatePanelComponent implements OnInit {
   constructor(private readonly exchangeRateService: ExchangeRateService) { }
 
   ngOnInit(): void {
+    this.exchangeRateService.getExchangeRatesByBase("huf", this.currencies)
+                            .subscribe((data: ExchangeRate[]) => console.log(data));
   }
 
 }
