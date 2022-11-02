@@ -1,8 +1,3 @@
 <div class="exchange-rate-panel row">
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
-    <app-rate-card class="col-xl-2 col-lg-4 col-md-6"></app-rate-card>
+    <app-rate-card *ngFor="let currency of currencies" class="col-xl-2 col-lg-4 col-md-6" [currency]="currency"></app-rate-card>
 </div>

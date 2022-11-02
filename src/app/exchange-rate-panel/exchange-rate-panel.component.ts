@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExchangeRatePanelComponent implements OnInit {
 
+  currencies: string[] = ["eur", "usd", "gbp", "rub", "jpy", "chf"];
+
   constructor() { }
 
   ngOnInit(): void {
