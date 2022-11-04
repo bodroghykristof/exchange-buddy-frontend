@@ -1,7 +1,7 @@
 export interface ExchangeRate {
-    id: number,
+    id?: number,
     currencyOne: string,
     currencyTwo: string,
-    exchangeRate: number,
-    creat: Date
+    exchangeRate?: number,
+    creat?: Date
 }

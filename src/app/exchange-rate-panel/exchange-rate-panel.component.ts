@@ -9,10 +9,13 @@ import { ExchangeRateService } from '../services/exchange-rate-service/exchange-
 })
 export class ExchangeRatePanelComponent implements OnInit {
 
+  baseCurrency: string = "huf";
   currencies: string[] = ["eur", "usd", "gbp", "rub", "jpy", "chf"];
   exchangeRates: ExchangeRate[] = [];
 
-  constructor(private readonly exchangeRateService: ExchangeRateService) { }
+  constructor(private readonly exchangeRateService: ExchangeRateService) {
+    this.exchangeRates = this.currencies.map(c => ({currencyOne: c, currencyTwo: this.baseCurrency}));
+  }
 
   ngOnInit(): void {
     this.exchangeRateService.getExchangeRatesByBase("huf", this.currencies)

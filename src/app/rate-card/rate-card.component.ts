@@ -15,7 +15,7 @@ export class RateCardComponent implements OnInit {
   // arrowColor = "red";
 
   @Input() currency!: string;
-  @Input() exchangeRate!: number;
+  @Input() exchangeRate?: number;
 
   constructor() { }
 
