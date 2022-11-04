@@ -3,4 +3,5 @@
         [currency]="rateData.currencyOne"
         [exchangeRate]="rateData.exchangeRate">
     </app-rate-card>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
 </div>
