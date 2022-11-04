@@ -1,3 +1,7 @@
 <div class="exchange-rate-panel row">
-    <app-rate-card *ngFor="let currency of currencies" class="col-xl-2 col-lg-4 col-md-6" [currency]="currency"></app-rate-card>
+    <app-rate-card *ngFor="let rateData of exchangeRates" class="col-xl-2 col-lg-4 col-md-6" 
+        [currency]="rateData.currencyOne"
+        [exchangeRate]="rateData.exchangeRate">
+    </app-rate-card>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
 </div>
