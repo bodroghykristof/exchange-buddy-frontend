@@ -1,6 +1,8 @@
-<div class="rate-card">
-    <p class="currency-name">{{currency | uppercase}}</p>
-    <img class="flag-image" src="./assets/images/currencies/{{currency | lowercase}}.png" />
-    <p class="exchange-rate">{{exchangeRate ? (exchangeRate | number: '1.4-4') : "???"}}</p>
-    <fa-icon *ngIf="arrowIcon && arrowColor" class="arrow-icon" [icon]="arrowIcon" [ngStyle]="{'color': arrowColor}"></fa-icon>
+<div class="card-container" [ngClass]="{'green-border': increase === true, 'red-border': increase === false}">
+    <div class="rate-card">
+        <p class="currency-name">{{currency | uppercase}}</p>
+        <img class="flag-image" src="./assets/images/currencies/{{currency | lowercase}}.png" />
+        <p class="exchange-rate">{{exchangeRate ? (exchangeRate | number: '1.4-4') : "???"}}</p>
+        <fa-icon *ngIf="arrowIcon && arrowColor" class="arrow-icon" [icon]="arrowIcon" [ngStyle]="{'color': arrowColor}"></fa-icon>
+    </div>
 </div>

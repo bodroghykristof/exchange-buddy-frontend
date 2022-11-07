@@ -10,10 +10,10 @@ export class RateCardComponent implements OnChanges {
 
   @Input() currency!: string;
   @Input() exchangeRate?: number;
-  @Input() increase: boolean = false;
-
+  
   arrowIcon: IconDefinition | null = null;
   arrowColor: string | null = null;
+  increase: boolean | null = null;
 
   constructor() { }
 
@@ -24,9 +24,11 @@ export class RateCardComponent implements OnChanges {
       if (change.previousValue < change.currentValue) {
         this.arrowColor = "green";
         this.arrowIcon = faArrowUp;
+        this.increase = true;
       } else {
         this.arrowColor = "red";
         this.arrowIcon = faArrowDown;
+        this.increase = false;
       }
     }
   }
