@@ -15,6 +15,7 @@ export class SseService {
 
             eventSource.onmessage = event => {
                 this.zone.run(() => onEvent(event));
+                observer.next();
             }
 
             eventSource.onerror = error => {

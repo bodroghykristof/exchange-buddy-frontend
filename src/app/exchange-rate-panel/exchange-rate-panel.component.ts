@@ -32,14 +32,20 @@ export class ExchangeRatePanelComponent implements OnInit {
         subscription.unsubscribe();
       }
     });
-    this.exchangeRateService.getLiveExchangeRateUpdate((event: MessageEvent<string>) => this.updateRates(event.data), (error: any) => console.log(error)).subscribe();
+    this.exchangeRateService.getLiveExchangeRateUpdate(
+        (event: MessageEvent<string>) => this.updateRates(event.data), 
+        (error: any) => console.log(error))
+      .subscribe();
   }
 
   private updateRates(eventString: string) {
     // console.log("MY RAW DATA: " + rates);
-    let rates: ExchangeRate[] = JSON.parse(eventString);
-    for (let rate of rates) {
-      console.log(rate);
+    let newRates: ExchangeRate[] = JSON.parse(eventString);
+    for (let exchangeRate of this.exchangeRates) {
+      let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
+      if (newRate.length > 0 && newRate[0].exchangeRate) {
+        exchangeRate.exchangeRate = newRate[0].exchangeRate;
+      }
     }
   }
 
