@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BASE_URL, EXCHANGE_RATE_ENDPOINT } from 'src/app/rest-api/endpoints';
+import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
 import { BASE_CURRENCY, CURRENCIES, CURRENCY_SEPARATOR_CHAR } from 'src/app/rest-api/queryparam-constans';
+import { SseService } from '../sse/sse.service';
 import { ExchangeRate } from './exchange-rate.model';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { ExchangeRate } from './exchange-rate.model';
 })
 export class ExchangeRateService {
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient, private readonly sseService: SseService) { }
 
   getExchangeRatesByBase(base: string, currencies: string[]) : Observable<ExchangeRate[]> {
     if (!base || currencies.length === 0) {
@@ -26,6 +27,10 @@ export class ExchangeRateService {
 
     return this.http.get<ExchangeRate[]>(BASE_URL + EXCHANGE_RATE_ENDPOINT + queryParams);
 
+  }
+
+  getLiveExchangeRateUpdate() : Observable<EventSource> {
+    return this.sseService.getServerSentEvent(BASE_URL + EXCHANGE_RATE_SSE_ENDPOINT);
   }
 
 }

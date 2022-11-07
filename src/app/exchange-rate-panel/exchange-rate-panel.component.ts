@@ -30,8 +30,9 @@ export class ExchangeRatePanelComponent implements OnInit {
       error: () => {
         this.errorMessage = "Exchange rates cannot be loaded, because our server is temporarily unavailable."
         subscription.unsubscribe();
-    }
-  });
+      }
+    });
+    this.exchangeRateService.getLiveExchangeRateUpdate().subscribe(data => console.log(data));
   }
 
 }
