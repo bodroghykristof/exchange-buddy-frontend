@@ -29,8 +29,9 @@ export class ExchangeRateService {
 
   }
 
-  getLiveExchangeRateUpdate(onEvent: any, onError: any) : Observable<EventSource> {
-    return this.sseService.getServerSentEvent(BASE_URL + EXCHANGE_RATE_SSE_ENDPOINT, onEvent, onError);
+  getLiveExchangeRateUpdate() : Observable<MessageEvent<string>> {
+    // maybe convert event to given type
+    return this.sseService.getServerSentEvent(BASE_URL + EXCHANGE_RATE_SSE_ENDPOINT);
   }
 
 }
