@@ -20,7 +20,6 @@ export class RateCardComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     let change: SimpleChange = changes['exchangeRate'];
     if (change && change.previousValue && change.currentValue) {
-      console.log("CHANGE, prev: " + change.previousValue + ", current: " + change.currentValue);
       if (change.previousValue < change.currentValue) {
         this.arrowColor = "green";
         this.arrowIcon = faArrowUp;
