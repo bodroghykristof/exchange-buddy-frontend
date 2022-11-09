@@ -21,8 +21,7 @@ export class SseService {
             // we do not use the error stream because we would like to keep
             // open the subscription (using observer.error would terminate the observer)
             eventSource.onerror = error => {
-                this.zone.run(() => observer.next({error: error}
-                ));
+                this.zone.run(() => observer.next({error: error}));
             }
         })
     }

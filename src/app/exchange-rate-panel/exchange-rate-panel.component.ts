@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observer, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 import { ExchangeRateService } from '../services/exchange-rate-service/exchange-rate.service';
 
@@ -48,7 +48,6 @@ export class ExchangeRatePanelComponent implements OnInit {
   }
 
   private updateRates(newRates: ExchangeRate[]) {
-    console.log(newRates);
     for (let exchangeRate of this.exchangeRates) {
       let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
       if (newRate.length > 0 && newRate[0].exchangeRate) {
