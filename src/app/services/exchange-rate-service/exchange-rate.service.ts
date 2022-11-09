@@ -4,7 +4,7 @@ import { map, Observable } from 'rxjs';
 import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
 import { BASE_CURRENCY, CURRENCIES, CURRENCY_SEPARATOR_CHAR } from 'src/app/rest-api/queryparam-constans';
-import { SseService } from '../sse/sse.service';
+import { SseService } from '../sse-service/sse.service';
 import { ExchangeRate } from './exchange-rate.model';
 
 @Injectable({
