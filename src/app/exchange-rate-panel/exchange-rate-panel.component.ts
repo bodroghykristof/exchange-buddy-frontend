@@ -42,13 +42,12 @@ export class ExchangeRatePanelComponent implements OnInit {
   private subscribeToContinuousUpdate(): void {
     this.exchangeRateService.getLiveExchangeRateUpdate()
       .subscribe({
-        next: (event: MessageEvent<string>) => this.updateRates(event.data),
+        next: (rates: ExchangeRate[]) => this.updateRates(rates),
         error: (error) => console.log(error)
       });
   }
 
-  private updateRates(eventString: string) {
-    let newRates: ExchangeRate[] = JSON.parse(eventString);
+  private updateRates(newRates: ExchangeRate[]) {
     for (let exchangeRate of this.exchangeRates) {
       let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
       if (newRate.length > 0 && newRate[0].exchangeRate) {
