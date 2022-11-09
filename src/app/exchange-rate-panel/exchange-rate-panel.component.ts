@@ -48,6 +48,7 @@ export class ExchangeRatePanelComponent implements OnInit {
   }
 
   private updateRates(newRates: ExchangeRate[]) {
+    console.log(newRates);
     for (let exchangeRate of this.exchangeRates) {
       let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
       if (newRate.length > 0 && newRate[0].exchangeRate) {
