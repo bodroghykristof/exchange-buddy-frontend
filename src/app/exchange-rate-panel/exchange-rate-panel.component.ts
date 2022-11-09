@@ -10,12 +10,13 @@ import { ExchangeRateService } from '../services/exchange-rate-service/exchange-
 })
 export class ExchangeRatePanelComponent implements OnInit {
 
-  baseCurrency: string = "huf";
-  currencies: string[] = ["eur", "usd", "gbp", "rub", "jpy", "chf"];
+  baseCurrency: string = "HUF";
+  currencies: string[] = ["EUR", "USD", "GBP", "RUB", "JPY", "CHF"];
   exchangeRates: ExchangeRate[] = [];
   errorMessage: string | null = null;
 
   constructor(private readonly exchangeRateService: ExchangeRateService) {
+    console.log("CONSTRUCTOR")
     this.exchangeRates = this.currencies.map(c => ({ currencyOne: c, currencyTwo: this.baseCurrency }));
   }
 
@@ -48,10 +49,17 @@ export class ExchangeRatePanelComponent implements OnInit {
   }
 
   private updateRates(newRates: ExchangeRate[]) {
-    for (let exchangeRate of this.exchangeRates) {
-      let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
-      if (newRate.length > 0 && newRate[0].exchangeRate) {
-        exchangeRate.exchangeRate = newRate[0].exchangeRate;
+    if (newRates.length === 0) {
+      if (!this.errorMessage) {
+        this.errorMessage = "Our server is temporarily unavailable, so exchange rates may not reflect up-to-date values.";
+      }
+    } else {
+      this.errorMessage = null;
+      for (let exchangeRate of this.exchangeRates) {
+        let newRate: ExchangeRate[] = newRates.filter(r => r.currencyOne === exchangeRate.currencyOne);
+        if (newRate.length > 0 && newRate[0].exchangeRate) {
+          exchangeRate.exchangeRate = newRate[0].exchangeRate;
+        }
       }
     }
   }
