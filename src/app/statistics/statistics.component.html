@@ -1,12 +1,14 @@
 <p-dropdown 
     name="currencyOne"
+    placeholder="Select a currency"
     [options]="currencies" 
     [(ngModel)]="currencyOne" 
-    (onChange)="onCurrencyChange($event)">
+    (onChange)="onCurrencyChange($event, 1)">
 </p-dropdown>
 <p-dropdown
     name="currencyTwo"
+    placeholder="Select a currency"
     [options]="currencies" 
     [(ngModel)]="currencyTwo" 
-    (onChange)="onCurrencyChange($event)">
+    (onChange)="onCurrencyChange($event, 2)">
 </p-dropdown>
