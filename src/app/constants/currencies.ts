@@ -1,0 +1,1 @@
+export const currencies: string[] = ["EUR", "USD", "GBP", "RUB", "JPY", "CHF"];
