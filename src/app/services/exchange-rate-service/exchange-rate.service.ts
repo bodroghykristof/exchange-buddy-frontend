@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
-import { BASE_CURRENCY, CURRENCIES, CURRENCY_SEPARATOR_CHAR } from 'src/app/rest-api/queryparam-constans';
+import { BASE_CURRENCY, CURRENCIES_QUERY_STRING_KEY, CURRENCY_SEPARATOR_CHAR } from 'src/app/rest-api/queryparam-constans';
 import { SseService } from '../sse-service/sse.service';
 import { ExchangeRate } from './exchange-rate.model';
 
@@ -21,7 +21,7 @@ export class ExchangeRateService {
 
     let queryParams: string = new QueryParamBuilder()
       .addParam(BASE_CURRENCY, base)
-      .addParam(CURRENCIES, currencies.join(CURRENCY_SEPARATOR_CHAR))
+      .addParam(CURRENCIES_QUERY_STRING_KEY, currencies.join(CURRENCY_SEPARATOR_CHAR))
       .build();
 
     return this.http.get<ExchangeRate[]>(BASE_URL + EXCHANGE_RATE_ENDPOINT + queryParams);
