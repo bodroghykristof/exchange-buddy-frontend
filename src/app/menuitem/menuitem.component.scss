@@ -1,0 +1,19 @@
+@import "../../vars.scss";
+
+a {
+    color: $text-highlight;
+    font-size: 18px;
+    text-decoration: none;
+    
+    :hover {
+        color: white;
+    }
+    
+    li {
+        margin-bottom: 40px;
+        padding-top: 0.25em;
+        padding-left: 5px;
+        height: 2em;
+    }
+
+}

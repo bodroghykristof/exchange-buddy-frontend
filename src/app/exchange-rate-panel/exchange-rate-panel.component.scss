@@ -1,0 +1,15 @@
+@import "../../vars.scss";
+
+.exchange-rate-panel {
+    background: $opal-dark-panel;
+    margin: 0;
+    padding: 10px;
+
+    p {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0;
+        font-weight: bold;
+        color: $errorRed;
+    }
+}

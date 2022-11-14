@@ -1,0 +1,69 @@
+@import "../../vars.scss";
+
+.rate-card {
+    background-color: $main-medium;
+    height: 120px;
+    border: $panel-border;
+    opacity: 1 !important;
+    position: relative;
+    
+    p {
+        margin: 0;
+    }
+
+    .currency-name {
+        font-size: 24px;
+        position: absolute;
+        top: 8px;
+        left: 10px;
+    }
+    
+    .exchange-rate {
+        font-size: 30px;
+        position: absolute;
+        bottom: 5px;
+        width: 80%;
+        text-align: center;
+    }
+    
+    .flag-image {
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    
+    .arrow-icon {
+        font-size: 20px;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+    }
+    
+}
+
+.card-container {
+    margin: 10px;
+    border: solid opalGreen(0) 3px;
+    animation-duration: 2s;
+}
+
+.green-border {
+    animation-name: greenBackground;
+}
+
+.red-border {
+    animation-name: redBackground;
+}
+
+@keyframes greenBackground {
+    0% { border: solid opalGreen(0) 3px; }
+    50% { border: solid opalGreen(0.5) 3px; }
+    100% { border: solid opalGreen(0) 3px; }
+}
+
+@keyframes redBackground {
+    0% { border: solid opalRed(0) 3px; }
+    50% { border: solid opalRed(0.5) 3px; }
+    100% { border: solid opalRed(0) 3px; }
+}
