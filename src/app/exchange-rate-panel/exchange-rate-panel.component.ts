@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 import { ExchangeRateService } from '../services/exchange-rate-service/exchange-rate.service';
-import { CURRENCIES, DEFAULT_BASE_CURRENCY } from '../constants/currencies';
+import { getNotBaseCurrencies, DEFAULT_BASE_CURRENCY } from '../constants/currencies';
 
 @Component({
   selector: 'app-exchange-rate-panel',
@@ -17,7 +17,7 @@ export class ExchangeRatePanelComponent implements OnInit {
   errorMessage: string | null = null;
 
   constructor(private readonly exchangeRateService: ExchangeRateService) {
-    this.currencies = CURRENCIES;
+    this.currencies = getNotBaseCurrencies();
     this.exchangeRates = this.currencies.map(c => ({ currencyOne: c, currencyTwo: this.baseCurrency }));
   }
 

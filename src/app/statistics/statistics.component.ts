@@ -8,14 +8,14 @@ import { CURRENCIES, DEFAULT_CURRENCY_ONE, DEFAULT_CURRENCY_TWO } from '../const
 })
 export class StatisticsComponent implements OnInit {
 
-  currencies: StatCurrency[];
-  currencyOne: StatCurrency;
-  currencyTwo: StatCurrency;
+  currencies: string[];
+  currencyOne: string;
+  currencyTwo: string;
 
   constructor() { 
-    this.currencies = CURRENCIES.map(c => ({name: c}));
-    this.currencyOne = {name: DEFAULT_CURRENCY_ONE};
-    this.currencyTwo = {name: DEFAULT_CURRENCY_TWO};
+    this.currencies = CURRENCIES;
+    this.currencyOne = DEFAULT_CURRENCY_ONE;
+    this.currencyTwo = DEFAULT_CURRENCY_TWO;
   }
   
   ngOnInit(): void {
@@ -25,8 +25,4 @@ export class StatisticsComponent implements OnInit {
     console.log(this.currencyOne + ", " + this.currencyTwo);
   }
 
-}
-
-interface StatCurrency {
-  name: string;
 }
