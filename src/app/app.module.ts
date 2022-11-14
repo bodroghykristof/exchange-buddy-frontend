@@ -17,6 +17,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyDropdownComponent } from './currency-dropdown/currency-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrokerBuddyComponent,
     CurrencyMapComponent,
     MenuitemComponent,
-    AboutComponent
+    AboutComponent,
+    CurrencyDropdownComponent
   ],
   imports: [
     BrowserModule,

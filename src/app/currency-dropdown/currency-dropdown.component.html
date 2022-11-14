@@ -1,0 +1,18 @@
+<p-dropdown 
+    placeholder="Select a currency"
+    [options]="currencies" 
+    [(ngModel)]="currency" 
+    (onChange)="changeSelection()">
+    <ng-template pTemplate="selectedItem">
+        <div class="currency-item" *ngIf="currency">
+            <img [src]="'assets/images/currencies/' + currency.toLowerCase() + '.png'" />
+            <div>{{currency}}</div>
+        </div>
+    </ng-template>
+    <ng-template let-currency pTemplate="item">
+        <div class="currency-item">
+            <img [src]="'assets/images/currencies/' + currency.toLowerCase() + '.png'" />
+            <div>{{currency}}</div>
+        </div>
+    </ng-template>
+</p-dropdown>

@@ -18,7 +18,7 @@ export class StatisticsComponent {
     this.currencyTwo = DEFAULT_CURRENCY_TWO;
   }
 
-  onCurrencyChange(event: any, order: number): void {
+  validateSelection(order: number): void {
     if (this.currencyOne === this.currencyTwo) {
       if (order === 1) {
         this.currencyTwo = undefined;
@@ -27,4 +27,5 @@ export class StatisticsComponent {
       }
     }
   }
+
 }
