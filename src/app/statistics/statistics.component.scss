@@ -1,0 +1,9 @@
+.selector-container {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+
+    .selector-col {
+        width: 200px;
+    }
+}

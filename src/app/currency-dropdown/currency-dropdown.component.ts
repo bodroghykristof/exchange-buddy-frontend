@@ -14,7 +14,6 @@ export class CurrencyDropdownComponent {
   @Output() currencyChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() onChange: EventEmitter<string> = new EventEmitter<string>();
 
-
   constructor() { 
     this.currencies = CURRENCIES;
     console.log(this.currency);

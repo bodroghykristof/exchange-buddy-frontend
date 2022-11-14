@@ -1,2 +1,8 @@
-<app-currency-dropdown [(currency)]="currencyOne" (onChange)="validateSelection(1)"></app-currency-dropdown>
-<app-currency-dropdown [(currency)]="currencyTwo" (onChange)="validateSelection(2)"></app-currency-dropdown>
+<div class="selector-container">
+    <div class="selector-col">
+        <app-currency-dropdown [(currency)]="currencyOne" (onChange)="validateSelection(1)"></app-currency-dropdown>
+    </div>
+    <div class="selector-col">
+        <app-currency-dropdown [(currency)]="currencyTwo" (onChange)="validateSelection(2)"></app-currency-dropdown>
+    </div>
+</div>
