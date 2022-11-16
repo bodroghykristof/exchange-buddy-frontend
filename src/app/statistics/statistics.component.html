@@ -5,4 +5,14 @@
     <div class="selector-col">
         <app-currency-dropdown [(currency)]="currencyTwo" (onChange)="validateSelection(2)"></app-currency-dropdown>
     </div>
+    <div class="selector-col">
+        <p-dropdown placeholder="Select a timeframe"
+            [options]="timeFrames" 
+            optionLabel="label"
+            [(ngModel)]="timeFrame"
+            (onChange)="onTimeFrameChange()">
+        </p-dropdown>
+    </div>
+
+
 </div>
