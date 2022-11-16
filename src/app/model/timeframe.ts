@@ -1,5 +1,5 @@
 export interface TimeFrame {
     label: string;
-    from?: Date;
-    to?: Date;
+    from: Date;
+    to: Date;
 }

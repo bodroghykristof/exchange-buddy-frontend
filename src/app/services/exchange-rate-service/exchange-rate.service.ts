@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
 import { BASE_CURRENCY, CURRENCIES_QUERY_STRING_KEY, CURRENCY_SEPARATOR_CHAR } from 'src/app/rest-api/queryparam-constans';
@@ -36,5 +36,34 @@ export class ExchangeRateService {
         return event.data ? <ExchangeRate[]> JSON.parse(event.data.data) : [];
       }));
   }
+
+  getExchangeRateHistory(currencyOne: string, currencyTwo: string, from: Date, to: Date): Observable<ExchangeRate[]> {
+    if (!currencyOne || !currencyOne || !from || !to) {
+      throw "Some mandatory parameters are not defined";
+    } else if (from.getTime() > to.getTime()) {
+      throw "Time 'from' must not be later than 'to'";
+    }
+
+    return of(
+      [
+        {id: 1000, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 405.6591, creat: new Date()},
+        {id: 1001, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 404.1242, creat: new Date(new Date().setDate(new Date().getDate() - 1))},
+        {id: 1002, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 403.1011, creat: new Date(new Date().setDate(new Date().getDate() - 2))},
+        {id: 1003, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 406.1673, creat: new Date(new Date().setDate(new Date().getDate() - 3))},
+        {id: 1004, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 409.4901, creat: new Date(new Date().setDate(new Date().getDate() - 4))},
+        {id: 1005, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 408.2301, creat: new Date(new Date().setDate(new Date().getDate() - 5))},
+        {id: 1006, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 410.3410, creat: new Date(new Date().setDate(new Date().getDate() - 6))},
+      ]);
+
+    // TODO send API request
+    // let queryParams: string = new QueryParamBuilder()
+    //   .addParam(BASE_CURRENCY, base)
+    //   .addParam(CURRENCIES_QUERY_STRING_KEY, currencies.join(CURRENCY_SEPARATOR_CHAR))
+    //   .build();
+
+    // return this.http.get<ExchangeRate[]>(BASE_URL + EXCHANGE_RATE_ENDPOINT + queryParams);
+
+  }
+
 
 }

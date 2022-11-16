@@ -16,7 +16,6 @@ export class CurrencyDropdownComponent {
 
   constructor() { 
     this.currencies = CURRENCIES;
-    console.log(this.currency);
    }
 
    changeSelection(): void {
