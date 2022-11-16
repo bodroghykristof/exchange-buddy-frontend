@@ -10,6 +10,9 @@ $text-simple: rgba(255, 255, 255, 0.67);
 $text-highlight: rgba(255, 255, 255, 0.80);
 
 $orange: #fa8528;
+@function opalOrange($opacity) {
+    @return rgba(250, 133, 40, $opacity);
+}
 
 $green: #439b5f;
 @function opalGreen($opacity) {
