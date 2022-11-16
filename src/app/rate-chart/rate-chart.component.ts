@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import * as moment from 'moment';
+import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 
 @Component({
   selector: 'app-rate-chart',
@@ -7,18 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RateChartComponent implements OnInit {
 
-  data: any = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        borderColor: '#fa8528',
-        tension: 0
-      }
-    ]
-  };
+  @Input()
+  exchangeRates: ExchangeRate[] = [];
+  
+  data: any;
 
   options = {
     plugins: {
@@ -50,8 +44,25 @@ export class RateChartComponent implements OnInit {
   };
 
   constructor() { }
-
+  
   ngOnInit(): void {
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.exchangeRates);
+    this.data = {
+      labels: this.exchangeRates.map(r => moment(r.creat).format("YYYY.MM.DD")),
+      datasets: [
+        {
+          label: 'Exchange rate',
+          data: this.exchangeRates.map(r => r.exchangeRate),
+          fill: false,
+          borderColor: '#fa8528',
+          tension: 0
+        }
+      ]
+    }
+  }
+
 
 }

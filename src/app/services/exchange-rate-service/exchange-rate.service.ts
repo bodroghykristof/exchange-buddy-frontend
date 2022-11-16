@@ -46,13 +46,13 @@ export class ExchangeRateService {
 
     return of(
       [
-        {id: 1000, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 405.6591, creat: new Date()},
-        {id: 1001, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 404.1242, creat: new Date(new Date().setDate(new Date().getDate() - 1))},
-        {id: 1002, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 403.1011, creat: new Date(new Date().setDate(new Date().getDate() - 2))},
-        {id: 1003, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 406.1673, creat: new Date(new Date().setDate(new Date().getDate() - 3))},
-        {id: 1004, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 409.4901, creat: new Date(new Date().setDate(new Date().getDate() - 4))},
-        {id: 1005, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 408.2301, creat: new Date(new Date().setDate(new Date().getDate() - 5))},
-        {id: 1006, currencyOne: 'HUF', currencyTwo: 'EUR', exchangeRate: 410.3410, creat: new Date(new Date().setDate(new Date().getDate() - 6))},
+        {id: 1000, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 405.6591, creat: new Date()},
+        {id: 1001, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 404.1242, creat: new Date(new Date().setDate(new Date().getDate() - 1))},
+        {id: 1002, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 403.1011, creat: new Date(new Date().setDate(new Date().getDate() - 2))},
+        {id: 1003, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 404.1673, creat: new Date(new Date().setDate(new Date().getDate() - 3))},
+        {id: 1004, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 409.4901, creat: new Date(new Date().setDate(new Date().getDate() - 4))},
+        {id: 1005, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 408.2301, creat: new Date(new Date().setDate(new Date().getDate() - 5))},
+        {id: 1006, currencyOne: currencyOne, currencyTwo: currencyTwo, exchangeRate: 410.3410, creat: new Date(new Date().setDate(new Date().getDate() - 6))},
       ]);
 
     // TODO send API request
