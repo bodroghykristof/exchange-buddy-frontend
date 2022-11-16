@@ -6,7 +6,7 @@
         <app-currency-dropdown [(currency)]="currencyTwo" (onChange)="validateSelection(2)"></app-currency-dropdown>
     </div>
     <div class="selector-col">
-        <p-dropdown placeholder="Select a timeframe"
+        <p-dropdown
             [options]="timeFrames" 
             optionLabel="label"
             [(ngModel)]="timeFrame"

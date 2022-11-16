@@ -43,6 +43,8 @@ export class StatisticsComponent implements OnInit {
     yearAgoDate.setFullYear(yearAgoDate.getFullYear() - 1);
     this.timeFrames.push({label: "Last year", from: yearAgoDate, to: currentDate});
 
+    this.timeFrame = this.timeFrames[0];
+
   }
 
   validateSelection(order: number): void {
