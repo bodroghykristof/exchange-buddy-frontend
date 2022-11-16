@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 import { ExchangeRateService } from '../services/exchange-rate-service/exchange-rate.service';
+import { getNotBaseCurrencies, DEFAULT_BASE_CURRENCY } from '../constants/currencies';
 
 @Component({
   selector: 'app-exchange-rate-panel',
@@ -11,12 +12,12 @@ import { ExchangeRateService } from '../services/exchange-rate-service/exchange-
 export class ExchangeRatePanelComponent implements OnInit {
 
   baseCurrency: string = "HUF";
-  currencies: string[] = ["EUR", "USD", "GBP", "RUB", "JPY", "CHF"];
+  currencies: string[];
   exchangeRates: ExchangeRate[] = [];
   errorMessage: string | null = null;
 
   constructor(private readonly exchangeRateService: ExchangeRateService) {
-    console.log("CONSTRUCTOR")
+    this.currencies = getNotBaseCurrencies();
     this.exchangeRates = this.currencies.map(c => ({ currencyOne: c, currencyTwo: this.baseCurrency }));
   }
 
@@ -26,7 +27,7 @@ export class ExchangeRatePanelComponent implements OnInit {
   }
 
   private fetchInitialRateData(): void {
-    let subscription: Subscription = this.exchangeRateService.getExchangeRatesByBase("huf", this.currencies)
+    let subscription: Subscription = this.exchangeRateService.getExchangeRatesByBase(DEFAULT_BASE_CURRENCY, this.currencies)
       .subscribe({
         next: (data) => {
           this.exchangeRates = data;

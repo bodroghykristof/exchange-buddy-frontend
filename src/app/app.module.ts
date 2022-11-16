@@ -14,6 +14,10 @@ import { CurrencyMapComponent } from './currency-map/currency-map.component';
 import { MenuitemComponent } from './menuitem/menuitem.component';
 import { AboutComponent } from './about/about.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {DropdownModule} from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyDropdownComponent } from './currency-dropdown/currency-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrokerBuddyComponent,
     CurrencyMapComponent,
     MenuitemComponent,
-    AboutComponent
+    AboutComponent,
+    CurrencyDropdownComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule, 
+    DropdownModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
