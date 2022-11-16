@@ -18,6 +18,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyDropdownComponent } from './currency-dropdown/currency-dropdown.component';
+import { RateChartComponent } from './rate-chart/rate-chart.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CurrencyDropdownComponent } from './currency-dropdown/currency-dropdown
     CurrencyMapComponent,
     MenuitemComponent,
     AboutComponent,
-    CurrencyDropdownComponent
+    CurrencyDropdownComponent,
+    RateChartComponent
   ],
   imports: [
     BrowserModule,
