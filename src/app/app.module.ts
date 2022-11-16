@@ -15,6 +15,7 @@ import { MenuitemComponent } from './menuitem/menuitem.component';
 import { AboutComponent } from './about/about.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {DropdownModule} from 'primeng/dropdown';
+import {ChartModule} from 'primeng/chart';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyDropdownComponent } from './currency-dropdown/currency-dropdown.component';
@@ -42,7 +43,8 @@ import { RateChartComponent } from './rate-chart/rate-chart.component';
     FontAwesomeModule,
     HttpClientModule, 
     DropdownModule,
-    FormsModule
+    FormsModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
