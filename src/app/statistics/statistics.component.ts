@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CURRENCIES, DEFAULT_CURRENCY_ONE, DEFAULT_CURRENCY_TWO } from '../constants/currencies';
+import { getTimeFrames } from '../constants/timeframes';
+import { TimeFrame } from '../model/timeframe';
+import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
+import { ExchangeRateService } from '../services/exchange-rate-service/exchange-rate.service';
 
 @Component({
   selector: 'app-statistics',
@@ -15,34 +19,18 @@ export class StatisticsComponent implements OnInit {
   timeFrames: TimeFrame[] = [];
   timeFrame?: TimeFrame;
 
-  constructor() { 
+  exchangeRates: ExchangeRate[] = [];
+
+  constructor(private readonly exchangeRateService: ExchangeRateService) { 
     this.currencies = CURRENCIES;
     this.currencyOne = DEFAULT_CURRENCY_ONE;
     this.currencyTwo = DEFAULT_CURRENCY_TWO;
   }
 
   ngOnInit(): void {
-    const currentDate: Date = new Date();
-    const lastWeekDate: Date = new Date();
-    lastWeekDate.setDate(lastWeekDate.getDate() - 7);
-    this.timeFrames.push({label: "Last week", from: lastWeekDate, to: currentDate});
-
-    const twoWeeksAgoDate: Date = new Date(lastWeekDate.getTime());
-    twoWeeksAgoDate.setDate(twoWeeksAgoDate.getDate() - 7);
-    this.timeFrames.push({label: "Last 2 weeks", from: twoWeeksAgoDate, to: currentDate});
-
-    const monthAgoDate: Date = new Date();
-    monthAgoDate.setMonth(monthAgoDate.getMonth() - 1);
-    this.timeFrames.push({label: "Last month", from: monthAgoDate, to: currentDate});
-
-    const sixMonthsAgoDate: Date = new Date();
-    sixMonthsAgoDate.setMonth(sixMonthsAgoDate.getMonth() - 6);
-    this.timeFrames.push({label: "Last 6 months", from: sixMonthsAgoDate, to: currentDate});
-
-    const yearAgoDate: Date = new Date();
-    yearAgoDate.setFullYear(yearAgoDate.getFullYear() - 1);
-    this.timeFrames.push({label: "Last year", from: yearAgoDate, to: currentDate});
-
+    this.timeFrames = getTimeFrames();
+    this.timeFrame = this.timeFrames[0];
+    this.loadRateData();
   }
 
   validateSelection(order: number): void {
@@ -53,16 +41,17 @@ export class StatisticsComponent implements OnInit {
         this.currencyOne = undefined;
       }
     }
+    this.loadRateData();
   }
 
   onTimeFrameChange() {
-    console.log(this.timeFrame);
+    this.loadRateData();
   }
 
-}
-
-interface TimeFrame {
-  label: string;
-  from?: Date;
-  to?: Date;
+  loadRateData() : void {
+    if (this.currencyOne && this.currencyTwo && this.timeFrame) {
+      this.exchangeRateService.getExchangeRateHistory(this.currencyOne, this.currencyTwo, this.timeFrame.from, this.timeFrame?.to)
+          .subscribe((data: ExchangeRate[]) => this.exchangeRates = data)
+    }
+  }
 }
