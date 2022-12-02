@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import * as moment from 'moment';
+import { dateFormat } from '../commons/date-util';
 import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.model';
 
 @Component({
@@ -7,7 +7,7 @@ import { ExchangeRate } from '../services/exchange-rate-service/exchange-rate.mo
   templateUrl: './rate-chart.component.html',
   styleUrls: ['./rate-chart.component.scss']
 })
-export class RateChartComponent implements OnInit {
+export class RateChartComponent implements OnInit, OnChanges {
 
   @Input()
   exchangeRates: ExchangeRate[] = [];
@@ -42,8 +42,6 @@ export class RateChartComponent implements OnInit {
       }
     }
   };
-
-  constructor() { }
   
   ngOnInit(): void {
   }
@@ -51,7 +49,7 @@ export class RateChartComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.exchangeRates);
     this.data = {
-      labels: this.exchangeRates.map(r => moment(r.creat).format("YYYY.MM.DD")),
+      labels: this.exchangeRates.map(r => dateFormat(r.creat!, "YYYY.MM.DD")),
       datasets: [
         {
           label: 'Exchange rate',
@@ -63,6 +61,5 @@ export class RateChartComponent implements OnInit {
       ]
     }
   }
-
 
 }
