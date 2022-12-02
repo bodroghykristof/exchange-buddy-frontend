@@ -4,7 +4,7 @@ import { map, Observable, of } from 'rxjs';
 import { dateFormat } from 'src/app/commons/date-util';
 import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
-import { BASE_CURRENCY, CURRENCIES_QUERY_STRING_KEY, CURRENCY_SEPARATOR_CHAR, URL_DATE_FORMAT } from 'src/app/rest-api/queryparam-constans';
+import { BASE_CURRENCY, CURRENCIES_QUERY_STRING_KEY, CURRENCY_ONE, CURRENCY_SEPARATOR_CHAR, CURRENCY_TWO, FROM, TO, URL_DATE_FORMAT } from 'src/app/rest-api/queryparam-constans';
 import { SseService } from '../sse-service/sse.service';
 import { ExchangeRate } from './exchange-rate.model';
 
@@ -45,10 +45,14 @@ export class ExchangeRateService {
       throw "Time 'from' must not be later than 'to'";
     }
 
-    console.log(currencyOne);
-    console.log(currencyTwo);
-    console.log(dateFormat(from, URL_DATE_FORMAT));
-    console.log(dateFormat(to, URL_DATE_FORMAT));
+    let queryParams: string = new QueryParamBuilder()
+      .addParam(CURRENCY_ONE, currencyOne)
+      .addParam(CURRENCY_TWO, currencyTwo)
+      .addParam(FROM, dateFormat(from, URL_DATE_FORMAT))
+      .addParam(TO, dateFormat(to, URL_DATE_FORMAT))
+      .build();
+
+    console.log(queryParams);
 
     return of(
       [
