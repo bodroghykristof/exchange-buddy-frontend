@@ -15,5 +15,8 @@
     </div>
 </div>
 <div class="chart-container">
-    <app-rate-chart [exchangeRates]="exchangeRates"></app-rate-chart>
+    <app-rate-chart *ngIf="selectionValid(); else invalidCurrenciesBox" [exchangeRates]="exchangeRates"></app-rate-chart>
+    <ng-template #invalidCurrenciesBox>
+        <div>Please select two different currencies!</div>
+    </ng-template>
 </div>

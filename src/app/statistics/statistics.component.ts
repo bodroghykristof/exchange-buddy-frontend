@@ -54,4 +54,9 @@ export class StatisticsComponent implements OnInit {
           .subscribe((data: ExchangeRate[]) => this.exchangeRates = data)
     }
   }
+
+  selectionValid() : boolean {
+    return this.currencyOne !== undefined && this.currencyTwo !== undefined;
+  }
+
 }
