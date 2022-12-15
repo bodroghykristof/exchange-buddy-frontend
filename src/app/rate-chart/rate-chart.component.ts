@@ -47,7 +47,6 @@ export class RateChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.exchangeRates);
     this.data = {
       labels: this.exchangeRates.map(r => dateFormat(r.creat!, "YYYY.MM.DD")),
       datasets: [
