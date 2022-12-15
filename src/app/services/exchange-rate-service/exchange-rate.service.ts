@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { dateFormat } from 'src/app/commons/date-util';
+import { DISPLAY_LOADER } from 'src/app/interceptors/http-request-loader-interceptor';
 import { BASE_URL, EXCHANGE_RATE_ENDPOINT, EXCHANGE_RATE_HISTORY_ENDPOINT, EXCHANGE_RATE_SSE_ENDPOINT } from 'src/app/rest-api/endpoints';
 import { QueryParamBuilder } from 'src/app/rest-api/queryparam-builder';
 import { BASE_CURRENCY, CURRENCIES_QUERY_STRING_KEY, CURRENCY_ONE, CURRENCY_SEPARATOR_CHAR, CURRENCY_TWO, FROM, TO, URL_DATE_FORMAT } from 'src/app/rest-api/queryparam-constans';
@@ -38,7 +39,9 @@ export class ExchangeRateService {
       }));
   }
 
-  getExchangeRateHistory(currencyOne: string, currencyTwo: string, from: Date, to: Date): Observable<ExchangeRate[]> {
+  getExchangeRateHistory(currencyOne: string, currencyTwo: string, 
+    from: Date, to: Date, displayLoader: boolean): Observable<ExchangeRate[]> {
+
     if (!currencyOne || !currencyOne || !from || !to) {
       throw "Some mandatory parameters are not defined";
     } else if (from.getTime() > to.getTime()) {
@@ -52,10 +55,8 @@ export class ExchangeRateService {
       .addParam(TO, dateFormat(to, URL_DATE_FORMAT))
       .build();
 
-
-      console.log(BASE_URL + EXCHANGE_RATE_HISTORY_ENDPOINT + queryParams)
-
-    return this.http.get<ExchangeRate[]>(BASE_URL + EXCHANGE_RATE_HISTORY_ENDPOINT + queryParams);
+    const httpContext = displayLoader ? new HttpContext().set(DISPLAY_LOADER, true) : new HttpContext();
+    return this.http.get<ExchangeRate[]>(BASE_URL + EXCHANGE_RATE_HISTORY_ENDPOINT + queryParams, { context: httpContext });
 
   }
 

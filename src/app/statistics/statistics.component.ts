@@ -50,7 +50,7 @@ export class StatisticsComponent implements OnInit {
 
   loadRateData() : void {
     if (this.currencyOne && this.currencyTwo && this.timeFrame) {
-      this.exchangeRateService.getExchangeRateHistory(this.currencyOne, this.currencyTwo, this.timeFrame.from, this.timeFrame?.to)
+      this.exchangeRateService.getExchangeRateHistory(this.currencyOne, this.currencyTwo, this.timeFrame.from, this.timeFrame?.to, true)
           .subscribe((data: ExchangeRate[]) => this.exchangeRates = data)
     }
   }
